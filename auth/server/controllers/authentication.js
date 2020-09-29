@@ -36,3 +36,7 @@ exports.signup = async (req, res, next) => {
     if (err) return next(err);
   }
 };
+
+exports.signin = async (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) });
+};
