@@ -2,10 +2,17 @@ const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 
 const router = require("./router");
 
 const app = express();
+
+// DB Setup
+mongoose.connect("mongodb://127.0.0.1:27017/auth", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // App setup
 app.use(morgan("combined"));
