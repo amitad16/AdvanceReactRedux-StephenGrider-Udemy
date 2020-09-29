@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import "./index.css";
 import App from "components/App";
 import * as serviceWorker from "./serviceWorker";
@@ -9,7 +10,9 @@ import Root from "Root";
 ReactDOM.render(
   <React.StrictMode>
     <Root>
-      <App />
+      <BrowserRouter>
+        <Route path="/" component={App} />
+      </BrowserRouter>
     </Root>
   </React.StrictMode>,
   document.getElementById("root")
