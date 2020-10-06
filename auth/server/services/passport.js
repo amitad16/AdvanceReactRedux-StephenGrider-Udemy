@@ -17,12 +17,12 @@ const localLogin = new LocalStrategy(
     try {
       let user = await User.findOne({ email });
 
-      if (!user) return done(null, false);
+      if (!user) return done("Invalid email or password", false);
 
       // Compare passwords - is 'password' === 'user.password' ?
       let isMatch = await user.comparePassword(password);
 
-      if (!isMatch) return done(null, false);
+      if (!isMatch) return done("Invalid email or password", false);
 
       return done(null, user);
     } catch (err) {
